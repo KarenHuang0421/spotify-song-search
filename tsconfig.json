@@ -8,6 +8,12 @@
     },
     {
       "path": "./apps/spotify-song-search"
+    },
+    {
+      "path": "./apps/spotify-song-search-express-e2e"
+    },
+    {
+      "path": "./apps/spotify-song-search-express"
     }
   ]
 }

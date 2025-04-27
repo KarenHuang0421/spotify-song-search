@@ -1,0 +1,28 @@
+{
+  "name": "@spotify-song-search/spotify-song-search-express",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "targets": {
+      "serve": {
+        "executor": "@nx/js:node",
+        "defaultConfiguration": "development",
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "buildTarget": "@spotify-song-search/spotify-song-search-express:build",
+          "runBuildTargetDependencies": false
+        },
+        "configurations": {
+          "development": {
+            "buildTarget": "@spotify-song-search/spotify-song-search-express:build:development"
+          },
+          "production": {
+            "buildTarget": "@spotify-song-search/spotify-song-search-express:build:production"
+          }
+        }
+      }
+    }
+  }
+}

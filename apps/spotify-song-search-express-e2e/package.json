@@ -1,0 +1,25 @@
+{
+  "name": "@spotify-song-search/spotify-song-search-express-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@spotify-song-search/spotify-song-search-express"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/spotify-song-search-express-e2e/jest.config.ts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@spotify-song-search/spotify-song-search-express:build"
+        ]
+      }
+    }
+  }
+}
