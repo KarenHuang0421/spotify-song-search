@@ -1,6 +1,6 @@
 /// <reference types='vitest' />
-import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import { defineConfig } from 'vite';
 
 export default defineConfig(() => ({
   root: __dirname,
@@ -8,6 +8,7 @@ export default defineConfig(() => ({
   server: {
     port: 4200,
     host: 'localhost',
+    allowedHosts: ['23c8-61-71-49-103.ngrok-free.app'],
   },
   preview: {
     port: 4300,
