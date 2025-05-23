@@ -4,6 +4,7 @@
   "sourceRoot": "apps/api/src",
   "projectType": "application",
   "tags": [],
+  "type": "module",
   "targets": {
     "build": {
       "executor": "@nx/esbuild:esbuild",

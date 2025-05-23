@@ -1,8 +1,8 @@
 /// <reference types='vitest' />
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import vue from '@vitejs/plugin-vue';
+import { defineConfig } from 'vite';
 
 export default defineConfig(() => ({
   root: __dirname,
@@ -10,6 +10,7 @@ export default defineConfig(() => ({
   server: {
     port: 4200,
     host: 'localhost',
+    allowedHosts: ['7a6f-1-162-146-151.ngrok-free.app'],
   },
   preview: {
     port: 4300,
