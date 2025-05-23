@@ -11,7 +11,7 @@ export async function getHello(): Promise<any> {
 }
 
 export async function login(): Promise<any> {
-  const response = await instance.get('/login');
+  const response = await instance.get('/spotify/login');
   return response.data;
 }
 
@@ -19,7 +19,7 @@ export async function getToken(data: {
   code: string;
   state: string;
 }): Promise<any> {
-  const response = await instance.post('/get_token', data);
+  const response = await instance.post('/spotify/get_token', data);
   if (response.status !== 200) {
     throw new Error('Failed to get token');
   }
@@ -39,15 +39,6 @@ export async function getToken(data: {
     ] = `${token_type} ${access_token}`;
   }
 
-  return response.data;
-}
-
-export async function getUserProfile(token: string): Promise<any> {
-  const response = await instance.get('/user_profile', {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
   return response.data;
 }
 
