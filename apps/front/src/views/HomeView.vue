@@ -66,6 +66,7 @@ import {
   getSpotifyMeProfile,
   getSpotifySavedTracks,
   getGeniusSearch,
+  getOpenAIChatResponse,
   login,
   searchType,
 } from '../api';
@@ -116,7 +117,15 @@ const handleLogin = (service: serviceType) => {
     });
 };
 
-const handleSearch = () => {
+const handleSearch = async () => {
+ try {
+  const res = await getOpenAIChatResponse(search.value);
+  console.log(res)
+ } catch (err) {
+  console.error(err);
+ }
+};
+const handleSearchGenius = () => {
   if (search.value.trim() === '') {
     return;
   }

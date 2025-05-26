@@ -74,3 +74,10 @@ export async function getSpotifySavedTracks(): Promise<any> {
   const response = await instance.get('/spotify/savedTracks');
   return response.data;
 }
+
+export async function getOpenAIChatResponse(message: string): Promise<any> {
+  const response = await instance.get('/search', {
+    params: { message },
+  });
+  return response.data;
+}

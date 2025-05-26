@@ -15,6 +15,8 @@ app.use('/spotify', require('./routes/spotify'));
 
 app.use('/genius', require('./routes/genius'));
 
+app.use('/search', require('./routes/search'));
+
 app.get('/', (req, res) => {
   console.log('backend response');
   res.send({ message: 'Hello API' });
