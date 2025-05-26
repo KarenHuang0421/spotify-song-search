@@ -1,28 +1,50 @@
-# SongSearchMonorepo
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+# SpotifySongSearch
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
 
-Run `npx nx graph` to visually explore what got created. Now, let's get you up to speed!
+### Spotify 開發者帳號
+
+https://developer.spotify.com/dashboard/
+
+### Genius API
+
+https://genius.com/api-clients
+
+### OpenAI 開發者平台
+
+https://platform.openai.com/
+
+
+### 環境變數
+
+https://dashboard.doppler.com/
+
 
 ## Finish your CI setup
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/Nn5erfvRHz)
+[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/236HNlfHW3)
 
 
 ## Run tasks
 
-To run tasks with Nx use:
+To run the dev server for your app, use:
 
 ```sh
-npx nx <target> <project-name>
+npx nx serve spotify-song-search
+
+npx nx serve spotify-song-search-express
 ```
 
-For example:
+To create a production bundle:
 
 ```sh
-npx nx build myproject
+npx nx build spotify-song-search
+```
+
+To see all available targets to run for a project, run:
+
+```sh
+npx nx show project spotify-song-search
 ```
 
 These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
@@ -33,19 +55,18 @@ These targets are either [inferred automatically](https://nx.dev/concepts/inferr
 
 While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
 
-To install a new plugin you can use the `nx add` command. Here's an example of adding the React plugin:
+Use the plugin's generator to create new projects.
+
+To generate a new application, use:
+
 ```sh
-npx nx add @nx/react
+npx nx g @nx/vue:app demo
 ```
 
-Use the plugin's generator to create new projects. For example, to create a new React app or library:
+To generate a new library, use:
 
 ```sh
-# Generate an app
-npx nx g @nx/react:app demo
-
-# Generate a library
-npx nx g @nx/react:lib some-lib
+npx nx g @nx/vue:lib mylib
 ```
 
 You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
@@ -61,16 +82,10 @@ Nx Console is an editor extension that enriches your developer experience. It le
 
 [Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-## Useful links
+## 開發日誌
 
-Learn more:
+2025/5/12-
+建立新的spotify開發帳號，因website設定限制(需為https...etc)，故啟動專案之後可能會需要使用ngrok ` ngrok http 4200`，並修改spotify後台與vite.config設置；但依然沒有成功呼叫需使用者權限的api(會得到401 Valid user authentication required')，下次可試試官方的授權程式碼範例
+https://github.com/spotify/web-api-examples
 
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
