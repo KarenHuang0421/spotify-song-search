@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": "nx run-many -t serve api front --parallel --maxParallel=3"
+    "dev": "nx run-many -t serve api front --parallel --maxParallel=3",
+    "lint": "nx run-many -t lint api front --parallel --maxParallel=3"
   },
   "private": true,
   "dependencies": {
