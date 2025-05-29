@@ -1,6 +1,4 @@
-
 # SpotifySongSearch
-
 
 ### Spotify 開發者帳號
 
@@ -14,16 +12,13 @@ https://genius.com/api-clients
 
 https://platform.openai.com/
 
-
 ### 環境變數
 
 https://dashboard.doppler.com/
 
-
 ## Finish your CI setup
 
 [Click here to finish setting up your workspace!](https://cloud.nx.app/connect/236HNlfHW3)
-
 
 ## Run tasks
 
@@ -73,7 +68,6 @@ You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx 
 
 [Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-
 [Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
 ## Install Nx Console
@@ -85,7 +79,5 @@ Nx Console is an editor extension that enriches your developer experience. It le
 ## 開發日誌
 
 2025/5/12-
-建立新的spotify開發帳號，因website設定限制(需為https...etc)，故啟動專案之後可能會需要使用ngrok ` ngrok http 4200`，並修改spotify後台與vite.config設置；但依然沒有成功呼叫需使用者權限的api(會得到401 Valid user authentication required')，下次可試試官方的授權程式碼範例
+建立新的 spotify 開發帳號，因 website 設定限制(需為 https...etc)，故啟動專案之後可能會需要使用 ngrok ` ngrok http 4200`，並修改 spotify 後台與 vite.config 設置；但依然沒有成功呼叫需使用者權限的 api(會得到 401 Valid user authentication required')，下次可試試官方的授權程式碼範例
 https://github.com/spotify/web-api-examples
-
-
