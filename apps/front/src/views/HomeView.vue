@@ -62,12 +62,12 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import {
+  getGeniusSearch,
   getHello,
   getSpotifyMeProfile,
   getSpotifySavedTracks,
-  getGeniusSearch,
   login,
-  searchType,
+  Services,
 } from '../api';
 
 interface songType {
@@ -76,6 +76,7 @@ interface songType {
   artists: string[];
   album: string;
   imageUrl: string;
+  lyricsUrl?: string;
 }
 
 const songs = ref<songType[]>([]);
@@ -104,7 +105,7 @@ const getData = async () => {
   }
 };
 
-const handleLogin = (service: serviceType) => {
+const handleLogin = (service: Services) => {
   login(service)
     .then((res) => {
       if (res.redirectUrl) {
