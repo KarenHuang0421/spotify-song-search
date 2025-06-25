@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
+import * as cheerio from 'cheerio';
 import express from 'express';
 import queryString from 'query-string';
 
@@ -38,9 +39,8 @@ router.post('/get_token', (req, res) => {
     .then((response) => {
       if (response.status == 200) {
         const { access_token, token_type } = response.data;
-        instance.defaults.headers.common[
-          'Authorization'
-        ] = `${token_type} ${access_token}`;
+        instance.defaults.headers.common['Authorization'] =
+          `${token_type} ${access_token}`;
       }
       res.send(response.data);
     })
@@ -60,6 +60,34 @@ router.get('/search', (req, res) => {
       res.status(response.status).send({ error: 'Failed to fetch data' });
     }
   });
+});
+
+router.get('/lyric', async (req, res) => {
+  const url = req.query.url as string;
+
+  const { data: html } = await axios.get(url, {
+    headers: { 'User-Agent': 'Mozilla/5.0 (LyricsScraper/1.0)' },
+    timeout: 10000,
+  });
+
+  const $ = cheerio.load(html);
+  let lyrics = '';
+
+  $('div[data-lyrics-container="true"]').each((_, el) => {
+    const snippet = $(el)
+      .text()
+      .replace(/\n{2,}/g, '\n')
+      .trim();
+    if (snippet) lyrics += snippet + '\n';
+  });
+
+  lyrics = lyrics.replace(/\[.*?\]/g, '').trim();
+  lyrics = lyrics.split('Read More')[1].trim();
+
+  if (!lyrics) {
+    return res.status(404).send({ error: 'No lyrics found' });
+  }
+  res.send({ url: html, lyrics });
 });
 
 module.exports = router;

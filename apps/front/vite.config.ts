@@ -10,7 +10,7 @@ export default defineConfig(() => ({
   server: {
     port: 4200,
     host: 'localhost',
-    allowedHosts: ['7a6f-1-162-146-151.ngrok-free.app'],
+    allowedHosts: ['bafa-114-34-89-203.ngrok-free.app'],
   },
   preview: {
     port: 4300,

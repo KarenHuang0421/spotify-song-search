@@ -46,13 +46,16 @@
             <p class="song-album">
               {{ song.album }}
             </p>
-            <a
+            <button @click="() => handleGetLyric(song.lyricsUrl!)">
+              Get Lyric
+            </button>
+            <!-- <a
               v-if="song.lyricsUrl"
               :href="song.lyricsUrl"
               target="_blank"
             >
               View Lyrics
-            </a>
+            </a> -->
           </div>
         </div>
       </div>
@@ -62,6 +65,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import {
+  getGeniusLyric,
   getGeniusSearch,
   getHello,
   getSpotifyMeProfile,
@@ -116,6 +120,17 @@ const handleLogin = (service: Services) => {
       console.error(err);
     });
 };
+
+const handleGetLyric = (url: string) => {
+  getGeniusLyric(url).then((res) => {
+    console.log(res.lyrics)
+    //open a new window with the lyrics
+    alert(res.lyrics || 'No lyrics found.');
+  }).catch((err) => {
+    console.error(err);
+    alert('Error fetching lyrics.');
+  });
+}
 
 const handleSearch = () => {
   if (search.value.trim() === '') {

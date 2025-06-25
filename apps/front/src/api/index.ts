@@ -33,12 +33,11 @@ export async function getSpotifyToken(data: {
     localStorage.setItem('spotify_refresh_token', refresh_token);
     localStorage.setItem(
       'spotify_auth_expires_in',
-      (Date.now() + expires_in * 1000).toString()
+      (Date.now() + expires_in * 1000).toString(),
     );
 
-    instance.defaults.headers.common[
-      'Authorization'
-    ] = `${token_type} ${access_token}`;
+    instance.defaults.headers.common['Authorization'] =
+      `${token_type} ${access_token}`;
   }
   return response.data;
 }
@@ -61,6 +60,13 @@ export async function getGeniusToken(data: {
 export async function getGeniusSearch(query: string): Promise<any> {
   const response = await instance.get('/genius/search', {
     params: { search: query },
+  });
+  return response.data;
+}
+
+export async function getGeniusLyric(query: string): Promise<any> {
+  const response = await instance.get('/genius/lyric', {
+    params: { url: query },
   });
   return response.data;
 }
