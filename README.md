@@ -20,6 +20,25 @@ https://dashboard.doppler.com/
 
 [Click here to finish setting up your workspace!](https://cloud.nx.app/connect/236HNlfHW3)
 
+## 執行方式
+1. 一定要切換node version
+```
+nvm use
+```
+
+2. 用ngrok監聽port，取得能被外部訪問的網址
+```
+ngrok http 4200
+```
+將以下地方都替換掉
+- env的`SPOTIFY_REDIRECT_URI`
+- Spotify後台的redirect URL, website
+- `apps/front/vite.config.ts`的allowedHosts
+
+```
+npm run dev
+```
+
 ## Run tasks
 
 To run the dev server for your app, use:
